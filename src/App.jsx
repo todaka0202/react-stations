@@ -13,7 +13,6 @@ export const App = () => {
   return (
     <>
     <Header />
-    <Description />
     <DogListContainer />
     </>
   )

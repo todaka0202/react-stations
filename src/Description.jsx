@@ -2,7 +2,11 @@
 import { useState } from 'react'
 import { DogImage } from './DogImage'
 
-export const Description = () => {
+/**
+ * @param {{ dogList: string, onBreedClick: () => void; }} props
+ */
+
+export const Description = ({ dogList, onBreedClick }) => {
   const [dogUrl, setDogUrl] = useState("https://images.dog.ceo/breeds/spaniel-brittany/n02101388_6057.jpg");
 
   async function fetchDogImg() {
@@ -14,12 +18,12 @@ export const Description = () => {
       console.error("画像の取得に失敗しました", error);
     }
   }
-
-  return (
+  return(
     <>
     <p>犬の画像を表示するサイトです</p>
-    <DogImage imageUrl={dogUrl} />
+    <DogImage imageUrl={dogList} />
     <button onClick={fetchDogImg}>更新</button>
+    <button onClick={onBreedClick}>表示</button>
     </>
   )
 }
